@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 import { apiLimiter } from './middlewares/security';
 import authRoutes from './routes/auth';
 import transactionRoutes from './routes/transaction';
+import adminRoutes from './routes/admin';
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ app.use('/api/', apiLimiter);
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
